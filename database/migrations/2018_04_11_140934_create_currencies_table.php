@@ -16,6 +16,7 @@ class CreateCurrenciesTable extends Migration
         Schema::create('currencies', function (Blueprint $table) {
             $table->increments('id');
             $table->decimal('curs', 15, 4);
+            $table->string('code', 3);
             $table->integer('sort');
             $table->tinyInteger('status');
         });

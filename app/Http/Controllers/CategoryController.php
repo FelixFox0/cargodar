@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+//use App\Http\Controllers\Controller;
 use App\Category;
 //use App\Models\Category;
 use App\Models\Post;
@@ -23,8 +24,13 @@ class CategoryController extends Controller
     {
         //App::setLocale('en');
         $data = array();
-//        dd(App::getLocale());
-        $data['posts'] = Post::all();
+        //dd(DB::table('posts')->get());
+        /*$items = [];
+        foreach (Post::all() as $item) {
+            $items[]= $item->getPosts;
+        }
+        dd($items);*/
+        $data['posts'] = Post::getPosts();
 //        $data['a'] = 'azazza';
         return view('category.index', $data);
     }

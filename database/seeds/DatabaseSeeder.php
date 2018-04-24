@@ -38,13 +38,13 @@ class DemoSeeder extends Seeder
         
         $language = Language::create([
             'name' => 'Russian',
-            'iso' => 'rus',
+            'iso' => 'ru',
             'sort' => 0,
             'status' => 1
         ]);
         Language::create([
             'name' => 'English',
-            'iso' => 'eng',
+            'iso' => 'en',
             'sort' => 1,
             'status' => 1
         ]);
@@ -82,6 +82,7 @@ class DemoSeeder extends Seeder
         
         
         $currency = Currency::create([
+            'code' => 'UAH',
             'curs' => 1,
             'sort' => 0,
             'status' => 1
@@ -90,7 +91,7 @@ class DemoSeeder extends Seeder
         DB::table('Currencies_languages')->insert([
             'currency_id' => $currency->id,
             'language_id' => $language->id,
-            'name' => 'UAH',
+            'name' => 'грн',
         ]);
         
         
