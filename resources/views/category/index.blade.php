@@ -1,6 +1,6 @@
 {{ app()->getLocale() }}<br/>
 @foreach ($posts as $post)
-        {{$post}}
+        {{$post}}<br/>
 @endforeach
 
 <?php /*

@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use App;
 use Config;
-use Session;
+//use Session;
 use Cookie;
 use Crypt;
 use App\Models\Language;
@@ -24,26 +24,33 @@ class Locale
         //$raw_locale = Session::get('locale');     # Если пользователь уже был на нашем сайте, 
 //        Cookie::set('locale', 'ua');  
 //        Cookie::queue(Cookie::make('locale', 'ua', 60));
-        Cookie::queue('locale', 'ru');  //Работает
+        //Cookie::queue('locale', 'ru');  //Работает
 //        cookie('locale', 'ru');  
 //        setcookie('locale', 'ua');
         //$raw_locale = Crypt::decrypt(Cookie::get('locale'));     
 //        var_dump(Language::first()->where('iso', '=', Crypt::decrypt(Cookie::get('locale')))->get());
-        //dd(Cookie::get('locale'));
+//        dd(Cookie::get('locale'));
         
-        $cookie_locale='';
+//        $cookie_locale='';
         if(Cookie::get('locale')){
-        $cookie_locale = Language::where('iso', '=', Crypt::decrypt(Cookie::get('locale')))
+//            dd(Crypt::decrypt(Cookie::get('locale')));
+            $cookie_locale = Language::getLangageByIso(Crypt::decrypt(Cookie::get('locale')));
+            /*$cookie_locale = Language::where('iso', '=', Crypt::decrypt(Cookie::get('locale')))
                 ->where('status', '>=', 1)
-                ->first();
+                ->first();*/
         }
-        if($cookie_locale){
-            dd(555);
+        if(isset($cookie_locale)){
+            App::setLocale($cookie_locale['iso']);
         }else{
-            if(Session::get('customer')){
-
+            
+            $browser_locale = Language::getLangageByIso(substr($request->server('HTTP_ACCEPT_LANGUAGE'), 0, 2));
+            if($browser_locale){
+                //var_dump(Language::getLangageByIso(substr($request->server('HTTP_ACCEPT_LANGUAGE'), 0, 2)));
+                Cookie::queue('locale', $browser_locale['iso']);
+                App::setLocale($browser_locale['iso']);
             }else{
-                dd(substr($request->server('HTTP_ACCEPT_LANGUAGE'), 0, 2));
+                Cookie::queue('locale', Config::get('app.locale'));
+                App::setLocale(Config::get('app.locale'));
             }
         }
         
@@ -53,10 +60,10 @@ class Locale
         }                                                         # И присваиваем значение переменной $locale.
   
         else{*/
-          $locale = Config::get('app.locale');                 # В ином случае присваиваем ей язык по умолчанию
+          //$locale = Config::get('app.locale');                 # В ином случае присваиваем ей язык по умолчанию
         /*}*/
 
-        App::setLocale($locale);                                  # Устанавливаем локаль приложения
+        //App::setLocale($locale);                                  # Устанавливаем локаль приложения
 
         return $next($request);                                   # И позволяем приложению работать дальше
 
