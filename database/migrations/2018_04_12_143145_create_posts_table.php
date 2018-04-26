@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->unsignedInteger('currency_id');
             $table->foreign('currency_id')->references('id')->on('currencies');
             $table->decimal('price', 15, 2);
+            $table->string('url', 255)->default('');
             $table->bigInteger('viewed_post');
             $table->bigInteger('viewed_contacts');
             $table->integer('sort');

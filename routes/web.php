@@ -18,12 +18,14 @@
 });*/
 //Route::get('/players', 'PlayerController@show')->name('player.show');
 
-Route::get('/', 'CategoryController@index');
 
-Route::get('item/{url}', 'PostController@index');
+Route::get('account', 'CustomerController@index');
 
 Route::get('setlocale/{locale}', function ($locale) {
 //    Session::put('locale', $locale);
     Cookie::queue('locale', $locale);
     return redirect()->back();
 });
+
+Route::get('{category?}', 'CategoryController@index');
+Route::get('{category}/{url}', 'PostController@index');

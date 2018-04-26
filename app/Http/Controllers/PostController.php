@@ -12,9 +12,9 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index($category, $url)
     {
-        dd($request);
+        dd($url);
     }
 
     /**

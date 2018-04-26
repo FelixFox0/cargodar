@@ -20,8 +20,9 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($category = '')
     {
+        var_dump($category);
         //App::setLocale('en');
         $data = array();
         //dd(DB::table('posts')->get());

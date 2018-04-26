@@ -3,13 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/OSPanel/domains/laravel.local/app/Models/Category.php</file>
-            <file>file:/D:/OSPanel/domains/laravel.local/app/Models/Post.php</file>
-            <file>file:/D:/OSPanel/domains/laravel.local/app/Http/Controllers/CategoryController.php</file>
-            <file>file:/D:/OSPanel/domains/laravel.local/resources/views/category/index.blade.php</file>
-            <file>file:/D:/OSPanel/domains/laravel.local/database/seeds/DatabaseSeeder.php</file>
-            <file>file:/D:/OSPanel/domains/laravel.local/app/Http/Middleware/Locale.php</file>
-            <file>file:/D:/OSPanel/domains/laravel.local/resources/views/welcome.blade.php</file>
+            <file>file:/C:/OSPanel/domains/cargodar.loc/app/Http/Controllers/CategoryController.php</file>
+            <file>file:/C:/OSPanel/domains/cargodar.loc/app/Http/Middleware/Locale.php</file>
+            <file>file:/C:/OSPanel/domains/cargodar.loc/.env</file>
+            <file>file:/C:/OSPanel/domains/cargodar.loc/app/Http/Controllers/PostController.php</file>
+            <file>file:/C:/OSPanel/domains/cargodar.loc/database/migrations/2018_04_10_142646_create_categories_table.php</file>
+            <file>file:/C:/OSPanel/domains/cargodar.loc/database/seeds/DatabaseSeeder.php</file>
+            <file>file:/C:/OSPanel/domains/cargodar.loc/routes/web.php</file>
+            <file>file:/C:/OSPanel/domains/cargodar.loc/app/Models/Post.php</file>
+            <file>file:/C:/OSPanel/domains/cargodar.loc/app/Models/Language.php</file>
+            <file>file:/C:/OSPanel/domains/cargodar.loc/database/migrations/2018_04_12_143145_create_posts_table.php</file>
         </group>
     </open-files>
 </project-private>
