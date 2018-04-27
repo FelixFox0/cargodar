@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Config;
 class Post extends Model
 {
     public static function getPosts($category_id = null) {

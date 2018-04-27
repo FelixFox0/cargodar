@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -14,7 +15,15 @@ class PostController extends Controller
      */
     public function index($category, $url)
     {
-        dd($url);
+//        dd($category);
+//        dd($url);
+        
+        if($category_info = Category::getCategoryByUrl($category)){
+            dd($category_info);
+        }else{
+            abort(404);
+        }
+
     }
 
     /**
