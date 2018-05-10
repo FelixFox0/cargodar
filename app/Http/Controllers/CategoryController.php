@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 //use App\Http\Controllers\Controller;
-use App\Category;
-//use App\Models\Category;
+//use App\Category;
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -22,7 +22,7 @@ class CategoryController extends Controller
      */
     public function index($category = '')
     {
-        var_dump($category);
+//        var_dump($category);
         //App::setLocale('en');
         $data = array();
         //dd(DB::table('posts')->get());
@@ -31,8 +31,17 @@ class CategoryController extends Controller
             $items[]= $item->getPosts;
         }
         dd($items);*/
-        $data['posts'] = Post::getPosts();
-//        $data['a'] = 'azazza';
+        if($category){
+            if($data['category'] = Category::getCategoryByUrl($category)){
+                $data['posts'] = Post::getPosts($data['category']['id']);
+            }else{
+                abort(404);
+            }
+        }else{
+            $data['posts'] = Post::getPosts();
+        }
+
+        
         return view('category.index', $data);
     }
 

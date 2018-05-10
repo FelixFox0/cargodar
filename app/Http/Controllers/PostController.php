@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
+//use App\Post;
+use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -20,6 +21,11 @@ class PostController extends Controller
         
         if($category_info = Category::getCategoryByUrl($category)){
             dd($category_info);
+            if($post_info = Post::getPostByUrl($url)){
+                dd($post_info);
+            }else{
+                abort(404);
+            }            
         }else{
             abort(404);
         }

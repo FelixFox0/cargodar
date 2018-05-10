@@ -19,7 +19,7 @@ class CreateCategoriesLanguagesTable extends Migration
             $table->unsignedInteger('language_id');
             $table->foreign('language_id')->references('id')->on('languages');
             $table->string('name', 255);
-            $table->text('decription');
+            $table->text('description');
             $table->string('metatitle', 255);
             $table->string('metadescription', 255);
         });

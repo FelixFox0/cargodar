@@ -60,7 +60,7 @@ class DemoSeeder extends Seeder
             'category_id' => $category->id,
             'language_id' => $language->id,
             'name' => 'Грузы',
-            'decription' => '',
+            'description' => '',
             'metatitle' => '',
             'metadescription' => '',
         ]);
@@ -74,7 +74,7 @@ class DemoSeeder extends Seeder
             'category_id' => $category2->id,
             'language_id' => $language->id,
             'name' => 'Машины',
-            'decription' => '',
+            'description' => '',
             'metatitle' => '',
             'metadescription' => '',
         ]);

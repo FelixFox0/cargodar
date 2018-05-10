@@ -32,6 +32,10 @@ class Locale
 //        dd(Cookie::get('locale'));
         
 //        $cookie_locale='';
+//        dd(Config::get('app.locale_id'));
+//        Config::set('app.locale_id', 3);
+//        dd(Config::get('app.locale_id'));
+        
         if(Cookie::get('locale')){
 //            dd(Crypt::decrypt(Cookie::get('locale')));
             $cookie_locale = Language::getLangageByIso(Crypt::decrypt(Cookie::get('locale')));
@@ -41,6 +45,7 @@ class Locale
         }
         if(isset($cookie_locale)){
             App::setLocale($cookie_locale['iso']);
+            Config::set('app.locale_id', $cookie_locale['id']);
         }else{
             
             $browser_locale = Language::getLangageByIso(substr($request->server('HTTP_ACCEPT_LANGUAGE'), 0, 2));
@@ -48,9 +53,11 @@ class Locale
                 //var_dump(Language::getLangageByIso(substr($request->server('HTTP_ACCEPT_LANGUAGE'), 0, 2)));
                 Cookie::queue('locale', $browser_locale['iso']);
                 App::setLocale($browser_locale['iso']);
+                Config::set('app.locale_id', $browser_locale['id']);
             }else{
                 Cookie::queue('locale', Config::get('app.locale'));
                 App::setLocale(Config::get('app.locale'));
+                Config::set('app.locale_id', Language::getLangageByIso(Config::get('app.locale'))['id']);
             }
         }
         
